@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-import-meta-resolve",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Another Rollup resolver plugin",
   "main": "rollup-plugin-import-meta-resolve.js",
   "type": "module",
