@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve/compare/v0.1.0...v0.2.0) (2024-03-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* incrementally resolve symlinks
+
+### Features
+
+* incrementally resolve symlinks ([52b8e82](https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve/commit/52b8e82bacc5d47c05864486b71bf2b3013e40d1))
+
 ## 0.1.0 (2024-03-15)
 
 
