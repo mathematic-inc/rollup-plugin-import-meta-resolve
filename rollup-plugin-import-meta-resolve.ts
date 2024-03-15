@@ -81,7 +81,7 @@ export default function importMetaResolve(
           source,
           pathToFileURL(importer),
           new Set(conditions),
-          false,
+          true,
         ),
       );
     } catch (error) {
