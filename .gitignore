@@ -1,0 +1,7 @@
+node_modules
+rollup-plugin-import-meta-resolve.d.ts
+rollup-plugin-import-meta-resolve.d.ts.map
+rollup-plugin-import-meta-resolve.js
+rollup-plugin-import-meta-resolve.js.map
+rollup-plugin-import-meta-resolve-*.tgz
+tsconfig.tsbuildinfo
