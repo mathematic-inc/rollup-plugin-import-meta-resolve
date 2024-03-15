@@ -1,3 +1,4 @@
+import {lstatSync, realpathSync} from "fs";
 import {extname} from "path";
 import {fileURLToPath, pathToFileURL} from "url";
 
@@ -31,13 +32,6 @@ interface ImportMetaResolvePluginOptions {
    * @defaultValue `false`
    */
   allowNode: boolean;
-  /**
-   * Whether we should allow following symlinks. Unlike Rollup, we only follow
-   * symlinks if necessary.
-   *
-   * @defaultValue `false`
-   */
-  preserveSymlinks: boolean;
 }
 
 /**
@@ -66,7 +60,7 @@ interface ImportMetaResolvePluginOptions {
  * This plugin is restrictive by default (e.g. no module roots, no `require`
  * exports, etc.). This ensures projects are up-to-date and compliant across the
  * board. If you have custom file tree requirements, it's recommended to use
- * symlinked directories and the `preserveSymlinks` option.
+ * symlinked directories.
  */
 export default function importMetaResolve(
   options: Partial<ImportMetaResolvePluginOptions> = {},
@@ -74,7 +68,6 @@ export default function importMetaResolve(
   const settings = {
     strict: options.strict ?? false,
     allowJson: options.allowJson ?? false,
-    preserveSymlinks: options.preserveSymlinks ?? false,
     allowNode: options.allowNode ?? false,
   } satisfies ImportMetaResolvePluginOptions;
 
@@ -82,14 +75,22 @@ export default function importMetaResolve(
   const extensions = [".mjs", ".js"];
 
   function resolve(source: string, importer: string) {
-    return fileURLToPath(
-      moduleResolve(
-        source,
-        pathToFileURL(importer),
-        new Set(conditions),
-        options.preserveSymlinks,
-      ),
-    );
+    try {
+      return fileURLToPath(
+        moduleResolve(
+          source,
+          pathToFileURL(importer),
+          new Set(conditions),
+          false,
+        ),
+      );
+    } catch (error) {
+      if (lstatSync(importer).isSymbolicLink()) {
+        return resolve(source, realpathSync(importer));
+      } else {
+        throw error;
+      }
+    }
   }
 
   function handler(source: string, importer: string) {
@@ -149,8 +150,7 @@ export default function importMetaResolve(
         return handler(`${source}/index`, importer);
       }
     }
-    // eslint-disable-next-line no-useless-return
-    return;
+    return undefined;
   }
 
   return {

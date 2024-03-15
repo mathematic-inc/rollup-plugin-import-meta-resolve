@@ -24,4 +24,4 @@ need to fix some modules that are not compliant with the ESM spec.
 This plugin is restrictive by default (e.g. no module roots, no `require`
 exports, etc.). This ensures projects are up-to-date and compliant across the
 board. If you have custom file tree requirements, it's recommended to use
-symlinked directories and the `preserveSymlinks` option.
+symlinked directories.
