@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve/compare/v0.3.0...v0.3.1) (2024-03-15)
+
+
+### Bug Fixes
+
+* set the registry ([aada8ec](https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve/commit/aada8ec34c6209feffe2ffbca2e494873c616dc7))
+
 ## [0.3.0](https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve/compare/v0.2.0...v0.3.0) (2024-03-15)
 
 
