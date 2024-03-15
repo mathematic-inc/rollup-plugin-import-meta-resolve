@@ -18,6 +18,10 @@
   ],
   "author": "Randolf J.",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mathematic-inc/rollup-plugin-import-meta-resolve"
+  },
   "peerDependencies": {
     "rollup": ">=3.0.0"
   },
