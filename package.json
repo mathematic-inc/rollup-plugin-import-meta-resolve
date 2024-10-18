@@ -4,7 +4,7 @@
   "description": "Another Rollup resolver plugin",
   "main": "rollup-plugin-import-meta-resolve.js",
   "type": "module",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@9.12.2",
   "scripts": {
     "build": "tsc -p .",
     "lint": "eslint ."
@@ -36,7 +36,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "3.0.2",
     "@types/node": "20.11.28",
-    "eslint": "8.57.0",
+    "eslint": "9.13.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-config-standard-with-typescript": "43.0.1",
     "eslint-plugin-prettier": "5.1.3",
